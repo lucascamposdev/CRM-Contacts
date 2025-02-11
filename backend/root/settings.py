@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-    'api'
+    'api',
+    'clients',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+APPEND_SLASH=True
