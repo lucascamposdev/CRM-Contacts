@@ -1,5 +1,6 @@
 from django.db import models
 from api.models import BaseModel
+from tags.models import Tag
 
 class Client(BaseModel):
     STATUS_CHOICES = [
@@ -17,6 +18,7 @@ class Client(BaseModel):
         null=True,  
         blank=True  
     )
+    tags = models.ManyToManyField(Tag, related_name="clients") 
 
     def __str__(self):
         return self.name
