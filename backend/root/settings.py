@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'clients',
+    'tags'
 ]
 
 MIDDLEWARE = [
@@ -131,4 +132,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-APPEND_SLASH=True
