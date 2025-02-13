@@ -1,0 +1,21 @@
+<li><h6 class="dropdown-header">Create Tag</h6></li>
+<form class="d-flex gap-2 px-3" (ngSubmit)="handleSubmit()">
+
+  <!-- Color Selector -->
+  <div class="dropdown">
+    <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+      [ngStyle]="{'background-color': selectedColor}" style="width: 40px; height: 40px; border-radius: 5px; padding: 0;">
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"   style="min-width: auto; width: 65px;">
+      <li *ngFor="let color of colors" >
+        <a class="dropdown-item" href="#" (click)="selectColor(color)">
+          <div class="color-box" [ngStyle]="{'background-color': color}" style="width: 30px; height: 30px; display: inline-block; border-radius: 5px;"></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Input -->
+  <input type="text" class="form-control form-control-sm" [(ngModel)]="inputValue" name="tagInput" autocomplete="off" required>
+  <button class="form-control w-25 bg-dark"><i class="bi bi-plus-lg" style="color: white; "></i></button>
+</form>

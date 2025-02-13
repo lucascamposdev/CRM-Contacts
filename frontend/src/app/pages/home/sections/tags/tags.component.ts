@@ -12,4 +12,14 @@ export class TagsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  activeSubDropdown: string | null = null;
+
+  openSubDropdown(subMenu: string): void {
+    this.activeSubDropdown = subMenu;
+  }
+
+  goBack(): void {
+    this.activeSubDropdown = null;
+  }
+
 }
