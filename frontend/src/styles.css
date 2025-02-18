@@ -191,3 +191,9 @@ button.toast-close-button {
     width: 25em;
   }
 }
+
+
+.font-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}

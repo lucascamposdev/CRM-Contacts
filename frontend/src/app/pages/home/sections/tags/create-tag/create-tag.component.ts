@@ -8,7 +8,7 @@ import { TagService } from 'src/app/services/tag.service';
 })
 export class CreateTagComponent implements OnInit {
 
-  colors = ['#FF5733', '#33FF57', '#3357FF', '#FFD700', '#8A2BE2'];
+  colors = ['#F1F2F4', '#4BCE97', '#F5CD47', '#FEA362', '#F87168', '#B8ACF6', '#579DFF'];
   selectedColor: string = this.colors[0];
   inputValue: string = '';
 
