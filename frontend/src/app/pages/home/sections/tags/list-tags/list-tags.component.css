@@ -1,0 +1,13 @@
+.list-container{
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.delete-button{
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  opacity: 0.8;
+  background-color: rgb(214, 211, 211);
+}

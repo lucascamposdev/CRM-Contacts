@@ -34,4 +34,11 @@ export class TagService {
       this.tagsSubject.next(updatedTags);
     });
   }
+
+  deleteTag(tagId: number) {
+    this.http.delete(`${this.apiUrl}${tagId}/`).subscribe(() => {
+      const updatedTags = this.tagsSubject.value.filter(tag => tag.id !== tagId);
+      this.tagsSubject.next(updatedTags);
+    });
+  }
 }
