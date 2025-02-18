@@ -9,6 +9,8 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { TagsModule } from './pages/home/sections/tags/tags.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     TagsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
+
     ],
   providers: [],
   bootstrap: [AppComponent]
