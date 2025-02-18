@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TagService } from 'src/app/services/tag.service';
 
 @Component({
   selector: 'app-create-tag',
@@ -11,7 +12,7 @@ export class CreateTagComponent implements OnInit {
   selectedColor: string = this.colors[0];
   inputValue: string = '';
 
-  constructor() { }
+  constructor(private tagService: TagService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,8 @@ export class CreateTagComponent implements OnInit {
 
     console.log('Selected Color:', this.selectedColor);
     console.log('Input Value:', this.inputValue);
+
+    this.tagService.addTag({ id: 0, name: this.inputValue, color: this.selectedColor });
 
     this.clearFields();
   }

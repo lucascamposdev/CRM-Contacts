@@ -8,6 +8,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { TagsModule } from './pages/home/sections/tags/tags.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +16,15 @@ import { TagsModule } from './pages/home/sections/tags/tags.module';
     HomeComponent,
     ClientsComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    TagsModule
-  ],
+    TagsModule,
+    HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
