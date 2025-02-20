@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
-interface Tag {
+export interface Tag {
   id: number;
   name: string;
   color: string;

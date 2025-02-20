@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
+
 /* position */
 .toast-center-center {
   top: 50%;
@@ -194,6 +195,26 @@ button.toast-close-button {
 
 
 .font-tag {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', serif;
   font-size: 14px;
+}
+
+.font-poppins {
+  font-family: 'Poppins', serif;
+}
+.font-kanit {
+  font-family: 'Kanit', serif;
+}
+.font-ubuntu {
+  font-family: 'Ubuntu', serif;
+}
+
+.page-link:disabled {
+  background-color: #e9eced;
+  pointer-events: none;
+  color: rgb(169, 169, 169);
+}
+
+.page-link:disabled:hover {
+  background-color: #e9eced;
 }

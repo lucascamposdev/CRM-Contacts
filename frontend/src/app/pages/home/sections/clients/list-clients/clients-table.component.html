@@ -1,0 +1,28 @@
+<div>
+  <table class="table">
+    <thead >
+      <tr >
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col" style="width: 150px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+          <button class="btn">...</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="d-flex justify-content-center">
+    <app-pagination
+      [hasNext]="!!nextPageUrl"
+      [hasPrevious]="!!previousPageUrl"
+      (nextPage)="goToNextPage()"
+      (previousPage)="goToPreviousPage()">
+    </app-pagination>
+  </span>
+</div>

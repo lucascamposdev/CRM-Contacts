@@ -24,9 +24,6 @@ export class CreateTagComponent implements OnInit {
   handleSubmit() {
     if (!this.inputValue.trim()) return;
 
-    console.log('Selected Color:', this.selectedColor);
-    console.log('Input Value:', this.inputValue);
-
     this.tagService.addTag({ id: 0, name: this.inputValue, color: this.selectedColor });
 
     this.clearFields();

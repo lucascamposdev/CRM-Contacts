@@ -1,0 +1,14 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <button class="page-link" aria-label="Previous" (click)="goPrevious()" [disabled]="!hasPrevious">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li class="page-item">
+      <button class="page-link" aria-label="Next" (click)="goNext()" [disabled]="!hasNext">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

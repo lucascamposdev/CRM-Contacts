@@ -11,6 +11,7 @@ import { TagsModule } from './pages/home/sections/tags/tags.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClientsModule } from './pages/home/sections/clients/clients.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     TagsModule,
+    ClientsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
