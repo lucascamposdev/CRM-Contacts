@@ -44,8 +44,8 @@ export class ClientsTableComponent implements OnInit {
     }
   }
 
-  onSearchChange(event: any) {
-    this.searchQuery = event.target.value;
+  onSearchChange(query: string) {
+    this.searchQuery = query;
     this.loadClients();
   }
 
