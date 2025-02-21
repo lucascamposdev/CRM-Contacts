@@ -13,10 +13,15 @@ export class ClientsTableComponent implements OnInit {
   previousPageUrl: string | null = null;
   searchQuery: string = '';
   order: string = 'alphabetical';
-
+  isLoading: boolean = false;
+  
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.clientService.loading$.subscribe((loading) => {
+      this.isLoading = loading;
+    });
+
     this.clientService.clientsResponse$.subscribe(response => {
       this.clients = response.results;
       this.nextPageUrl = response.next;

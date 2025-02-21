@@ -35,10 +35,15 @@ export class ClientService {
   });
   clientsResponse$ = this.clientsResponseSubject.asObservable();
 
+  // Loading
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  loading$ = this.loadingSubject.asObservable();
+
   constructor(private http: HttpClient, private toast: ToastrService) {}
 
   loadClients(params?: { page?: string, search?: string, order?: string }) {
     let httpParams = new HttpParams();
+    this.loadingSubject.next(true);
 
     const page = params?.page || '1';
     httpParams = httpParams.set('page', page);
@@ -51,8 +56,15 @@ export class ClientService {
       httpParams = httpParams.set('order', params.order);
     }
 
-    this.http.get<ClientResponse>(this.apiUrl, { params: httpParams }).subscribe(res => {
-      this.clientsResponseSubject.next(res);
+    this.http.get<ClientResponse>(this.apiUrl, { params: httpParams }).subscribe({
+      next: (res) => {
+        this.clientsResponseSubject.next(res);
+        this.loadingSubject.next(false);
+      },
+      error: (err) => {
+        this.toast.error('Error loading clients');
+        this.loadingSubject.next(false);
+      }
     });
   }
 }

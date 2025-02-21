@@ -12,8 +12,8 @@
         <th scope="col" style="max-width: 150px"></th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let client of clients">
+    <tbody *ngIf="!isLoading">
+      <tr *ngFor="let client of clients" >
         <td>{{ client.name }}</td>
         <td>{{ client.email }}</td>
         <td>{{ client.number }}</td>
@@ -24,6 +24,9 @@
       </tr>
     </tbody>
   </table>
+  <div class="w-100 p-3 justify-content-center d-flex mb-3" *ngIf="isLoading">
+    <div class="spinner-border" role="status"></div>
+  </div>
   <span class="d-flex justify-content-center">
     <app-pagination
       [hasNext]="!!nextPageUrl"
