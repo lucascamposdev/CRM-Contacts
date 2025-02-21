@@ -7,13 +7,17 @@
       <tr >
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col" style="width: 150px"></th>
+        <th scope="col">Number</th>
+        <th scope="col">Status</th>
+        <th scope="col" style="max-width: 150px"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let client of clients">
         <td>{{ client.name }}</td>
         <td>{{ client.email }}</td>
+        <td>{{ client.number }}</td>
+        <td>{{ client.status }}</td>
         <td>
           <button class="btn">...</button>
         </td>
