@@ -12,9 +12,9 @@ export class ClientsTableComponent implements OnInit {
   nextPageUrl: string | null = null;
   previousPageUrl: string | null = null;
   searchQuery: string = '';
-  order: string = 'alphabetical';
+  order: string = 'newest';
   isLoading: boolean = false;
-  
+
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
@@ -54,8 +54,8 @@ export class ClientsTableComponent implements OnInit {
     this.loadClients();
   }
 
-  changeOrder(order: string) {
-    this.order = order;
+  changeOrder(event: Event) {
+    this.order = (event.target as HTMLSelectElement).value;
     this.loadClients();
   }
 }

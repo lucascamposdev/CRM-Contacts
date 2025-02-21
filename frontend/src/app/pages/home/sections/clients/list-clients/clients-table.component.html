@@ -1,7 +1,19 @@
 <div>
-  <div class="mb-3">
-    <app-searchbar (searchChanged)="onSearchChange($event)"></app-searchbar>
+  <!-- Ordenador e Searchbar -->
+  <div class="mb-3 d-flex gap-3">
+    <select class="form-select w-25" (change)="changeOrder($event)">
+      <option value="asc">Order: A-Z</option>
+      <option value="desc">Order: Z-A</option>
+      <option value="newest" selected>Order: Newest</option>
+      <option value="oldest">Order: Oldest</option>
+    </select>
+
+    <div class="w-100">
+      <app-searchbar (searchChanged)="onSearchChange($event)"></app-searchbar>
+    </div>
   </div>
+
+  <!-- Tabela de Clientes -->
   <table class="table">
     <thead >
       <tr >
@@ -24,9 +36,13 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Loading Spinner -->
   <div class="w-100 p-3 justify-content-center d-flex mb-3" *ngIf="isLoading">
     <div class="spinner-border" role="status"></div>
   </div>
+
+  <!-- Paginação -->
   <span class="d-flex justify-content-center">
     <app-pagination
       [hasNext]="!!nextPageUrl"

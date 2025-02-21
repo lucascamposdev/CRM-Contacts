@@ -20,16 +20,21 @@ def client_list(request):
     # Get Clients w/ Pagination
     elif request.method == 'GET':
         search = request.GET.get('search', '')
-        order = request.GET.get('order', 'alphabetical')
+        order = request.GET.get('order', 'newest')
         page_size = int(request.GET.get('pageSize', 5)) 
         page = int(request.GET.get('page', 1))  
 
         clients = Client.objects.filter(Q(name__icontains=search))
 
-        if order == 'alphabetical':
-            clients = clients.order_by('name') 
-        else:
-            clients = clients.order_by('-createdAt')  
+        if order == 'asc':  # A-Z
+            clients = clients.order_by('name')
+        elif order == 'desc':  # Z-A
+            clients = clients.order_by('-name')
+        elif order == 'newest':  # Mais novos primeiro
+            clients = clients.order_by('-createdAt')
+        elif order == 'oldest':  # Mais antigos primeiro
+            clients = clients.order_by('createdAt')
+ 
 
         paginator = PageNumberPagination()
         paginator.page_size = page_size
