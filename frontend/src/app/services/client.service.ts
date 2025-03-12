@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { Tag } from './tag.service';
+import { FormGroup } from '@angular/forms';
 
 export interface Client{
   id: string;
@@ -27,6 +28,8 @@ interface ClientResponse {
 export class ClientService {
 
   private apiUrl = `${environment.apiUrl}/clients/`;
+
+  // Response Object
   private clientsResponseSubject = new BehaviorSubject<ClientResponse>({
     count: 0,
     next: '',
@@ -64,6 +67,30 @@ export class ClientService {
       error: (err) => {
         this.toast.error('Error loading clients');
         this.loadingSubject.next(false);
+      }
+    });
+  }
+
+  updateClient(client: Client, id: string) {
+    this.http.put<Client>(`${this.apiUrl}${id}/`, client).subscribe({
+      next: (updatedClient) => {
+        const currentResponse = this.clientsResponseSubject.value;
+
+        const updatedResults = currentResponse.results.map(c =>
+          c.id === id ? updatedClient : c
+        );
+
+        this.clientsResponseSubject.next({
+          ...currentResponse,
+          results: updatedResults
+        });
+
+        this.toast.success('Client updated successfully!');
+      },
+      error: (error) => {
+        const errorMessage = error?.error?.name || 'Error updating client';
+        console.log(error);
+        this.toast.error(errorMessage);
       }
     });
   }

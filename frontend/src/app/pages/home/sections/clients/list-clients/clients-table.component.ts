@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client, ClientService } from 'src/app/services/client.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { ClientFormComponent } from '../client-form/client-form.component';
 
 @Component({
   selector: 'app-clients-table',
@@ -15,7 +17,9 @@ export class ClientsTableComponent implements OnInit {
   order: string = 'newest';
   isLoading: boolean = false;
 
-  constructor(private clientService: ClientService) { }
+  constructor(
+    private clientService: ClientService,
+    private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.clientService.loading$.subscribe((loading) => {
@@ -57,5 +61,9 @@ export class ClientsTableComponent implements OnInit {
   changeOrder(event: Event) {
     this.order = (event.target as HTMLSelectElement).value;
     this.loadClients();
+  }
+
+  openModal(client: Client){
+    this.modalService.openModal(ClientFormComponent, client);
   }
 }

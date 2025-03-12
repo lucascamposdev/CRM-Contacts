@@ -8,9 +8,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalService {
   constructor(private modalService: NgbModal) {}
 
-  openModal(component: any, title: string, data: any) {
+  openModal(component: any, data: any) {
     const modalRef = this.modalService.open(component, { centered: true });
-    modalRef.componentInstance.title = title;
-    modalRef.componentInstance.data = data;  
+    modalRef.componentInstance.data = data;
   }
 }
