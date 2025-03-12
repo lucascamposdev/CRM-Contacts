@@ -67,6 +67,8 @@ export class ClientFormComponent implements OnInit {
     if (this.form.valid) {
       if(this.data){
         this.clientService.updateClient(this.form.value, this.data.id)
+      }else{
+        this.clientService.createClient(this.form.value)
       }
     } else {
       console.log('Form is invalid');

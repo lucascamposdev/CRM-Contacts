@@ -94,4 +94,27 @@ export class ClientService {
       }
     });
   }
+
+  createClient(client: Client) {
+    this.http.post<Client>(this.apiUrl, client).subscribe({
+      next: (newClient) => {
+        const currentResponse = this.clientsResponseSubject.value;
+
+        const updatedResults = [newClient, ...currentResponse.results];
+
+        this.clientsResponseSubject.next({
+          ...currentResponse,
+          count: currentResponse.count + 1,
+          results: updatedResults
+        });
+
+        this.toast.success('Client created successfully!');
+      },
+      error: (error) => {
+        const errorMessage = error?.error?.name || 'Error creating client';
+        console.log(error);
+        this.toast.error(errorMessage);
+      }
+    });
+  }
 }

@@ -53,7 +53,7 @@
     <!-- Delete or Save -->
     <div class="d-flex">
       <div class="d-flex align-items-center">
-        <span *ngIf="!showDeleteConfirm" type="button" (click)="showDeleteConfirmation()">Delete Client</span>
+        <span *ngIf="!showDeleteConfirm && data" type="button" (click)="showDeleteConfirmation()">Delete Client</span>
 
         <!-- Confirmação de deleção -->
         <div *ngIf="showDeleteConfirm">

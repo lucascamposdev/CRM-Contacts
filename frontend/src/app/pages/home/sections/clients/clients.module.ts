@@ -5,11 +5,12 @@ import { PaginationComponent } from './list-clients/pagination/pagination.compon
 import { SearchbarComponent } from './list-clients/searchbar/searchbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { CreateClientComponent } from './create-client/create-client.component';
 
 @NgModule({
-  declarations: [ClientsTableComponent, PaginationComponent, SearchbarComponent, ClientFormComponent],
+  declarations: [ClientsTableComponent, PaginationComponent, SearchbarComponent, ClientFormComponent, CreateClientComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  exports: [ClientsTableComponent, PaginationComponent, SearchbarComponent, ClientFormComponent]
+  exports: [ClientsTableComponent, PaginationComponent, SearchbarComponent, ClientFormComponent, CreateClientComponent]
 })
 export class ClientsModule {}
 
