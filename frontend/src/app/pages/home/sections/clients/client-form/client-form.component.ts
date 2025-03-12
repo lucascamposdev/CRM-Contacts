@@ -79,10 +79,11 @@ export class ClientFormComponent implements OnInit {
     showDeleteConfirmation() {
       this.showDeleteConfirm = true;
     }
-    confirmDelete() {
-      this.showDeleteConfirm = false;
-    }
     cancelDelete() {
       this.showDeleteConfirm = false;
+    }
+    confirmDelete() {
+      this.showDeleteConfirm = false;
+      this.clientService.deleteClient(this.data!.id);
     }
 }

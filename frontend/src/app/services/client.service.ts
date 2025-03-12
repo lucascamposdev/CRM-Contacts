@@ -117,4 +117,27 @@ export class ClientService {
       }
     });
   }
+
+  deleteClient(id: string) {
+    this.http.delete(`${this.apiUrl}${id}/`).subscribe({
+      next: () => {
+        const currentResponse = this.clientsResponseSubject.value;
+
+        const updatedResults = currentResponse.results.filter(c => c.id !== id);
+
+        this.clientsResponseSubject.next({
+          ...currentResponse,
+          count: currentResponse.count - 1,
+          results: updatedResults
+        });
+
+        this.toast.success('Client deleted successfully!');
+      },
+      error: (error) => {
+        const errorMessage = error?.error?.detail || 'Error deleting client';
+        console.log(error);
+        this.toast.error(errorMessage);
+      }
+    });
+  }
 }
